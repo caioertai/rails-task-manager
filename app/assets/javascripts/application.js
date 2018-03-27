@@ -12,4 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require materialize
 //= require_tree .
+
+document.addEventListener('turbolinks:load', () => {
+  M.AutoInit();
+  M.updateTextFields();
+})

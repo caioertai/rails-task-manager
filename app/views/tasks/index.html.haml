@@ -1,3 +1,14 @@
-%ul.collection
+%h1 Task Manager
+= render 'form', task: @task
+.collection
   - @tasks.each do |task|
-    %li.collection-item= task.name
+    .collection-item.avatar{class: "#{task.completed ? 'completed' : ''}"}
+      = link_to(toggle_path(task), class: 'circle', style: 'display: inline-block', method: 'patch') do
+        = image_tag("http://placehold.it/100/#{task.completed ? 'f2f2f2' : '4caf50'}/?text=.", alt: "")
+      %span.title= task.name
+      %p= task.details
+
+      .right-align
+        = link_to 'Details', task_path(task), class: 'waves-effect waves-grey btn-flat'
+        = link_to 'Edit', task_edit_path(task), class: 'waves-effect waves-grey btn-flat'
+        = link_to 'Delete', task_path(task), class: 'waves-effect waves-grey btn-flat', method: 'delete', data: { confirm: 'Are you sure you want to delete?' }
