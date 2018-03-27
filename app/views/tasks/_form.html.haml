@@ -1,11 +1,11 @@
 #form
   = form_for(task) do |f|
-    %fieldset
-      %legend New task
-      .input-field
-        = f.label :name
-        = f.text_field :name
-      .input-field
-        = f.label :details
-        = f.text_area :details, class: 'materialize-textarea'
-      .right-align= f.button fa_icon("thumb-tack"), class: 'waves-effect waves-grey btn-flat btn-large'
+    %h2 New task
+    .input-field
+      = f.label :name
+      = f.text_field :name
+    .input-field
+      = f.label :details
+      = f.text_area :details, class: 'materialize-textarea'
+      %span.helper-text.right-align Tip: Shift + Enter to send
+    .right-align= f.button fa_icon("thumb-tack"), class: 'btn-flat'

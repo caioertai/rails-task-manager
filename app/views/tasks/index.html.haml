@@ -1,6 +1,11 @@
+- content_for :javascript do
+  = javascript_tag "taskAddButton('#add-task')"
+
 %h1 Task Manager
-= render 'form', task: @task
+
 .collection
+  #add-form.collection-item{style: 'display: none'}= render 'form', task: @task
+  = link_to 'Add Task', '#', class: 'add-task-item waves-effect waves-light', id: 'add-task'
   - @tasks.each do |task|
     .collection-item.avatar{class: "#{task.completed ? 'completed' : ''}"}
       = link_to(toggle_path(task), class: 'circle', style: 'display: inline-block', method: 'patch') do

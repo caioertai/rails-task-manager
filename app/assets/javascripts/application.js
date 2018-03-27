@@ -13,9 +13,29 @@
 //= require rails-ujs
 //= require turbolinks
 //= require materialize
-//= require_tree .
 
 document.addEventListener('turbolinks:load', () => {
   M.AutoInit();
   M.updateTextFields();
+
+  document.querySelector('#task_details').addEventListener('keypress', (event) => {
+    if (event.keyCode == 13 && event.shiftKey) {
+      event.preventDefault()
+      event.currentTarget.form.submit()
+    }
+  })
 })
+
+const addTaskEvent = (event) => {
+  event.preventDefault()
+  const form = document.querySelector('#add-form')
+  event.currentTarget.style.display = 'none'
+  form.style.display = 'block'
+
+  setTimeout(() => {form.style.transform = 'scale(1)'}, 1)
+  form.querySelector("input[type='text']").focus()
+}
+
+const taskAddButton = (target) => {
+  document.querySelector(target).addEventListener('click', addTaskEvent)
+}
