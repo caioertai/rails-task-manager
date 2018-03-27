@@ -1,5 +1,5 @@
-- content_for :javascript do
-  = javascript_tag "taskAddButton('#add-task')"
+- content_for :after_js do
+  = javascript_tag 'addTaskInit();'
 
 %h1 Task Manager
 

@@ -1,3 +1,6 @@
+- content_for :after_js do
+  = javascript_tag 'textareaInit();'
+
 #form
   = form_for(task) do |f|
     %h2 New task
