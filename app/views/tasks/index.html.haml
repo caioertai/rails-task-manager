@@ -10,5 +10,5 @@
 
       .right-align
         = link_to 'Details', task_path(task), class: 'waves-effect waves-grey btn-flat'
-        = link_to 'Edit', task_edit_path(task), class: 'waves-effect waves-grey btn-flat'
+        = link_to 'Edit', edit_task_path(task), class: 'waves-effect waves-grey btn-flat'
         = link_to 'Delete', task_path(task), class: 'waves-effect waves-grey btn-flat', method: 'delete', data: { confirm: 'Are you sure you want to delete?' }
